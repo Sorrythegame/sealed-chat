@@ -3,11 +3,15 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "技术交流 - 安全、克制的沟通工具",
   description:
-    "技术交流是一款端到端加密的桌面沟通工具。下载 Windows 版本，macOS 版本正在准备中。",
+    "技术交流是一款端到端加密的桌面沟通工具，提供 Windows 与 macOS 客户端下载。",
 };
 
 const WINDOWS_DOWNLOAD =
   "/downloads/technology-communication_0.1.1_x64-setup.exe";
+const MAC_APPLE_SILICON_DOWNLOAD =
+  "/downloads/technology-communication_0.1.1_aarch64.dmg";
+const MAC_INTEL_DOWNLOAD =
+  "/downloads/technology-communication_0.1.1_x64.dmg";
 
 type IconProps = {
   className?: string;
@@ -227,7 +231,7 @@ export default function Home() {
         <div className="download-copy">
           <span>桌面客户端</span>
           <h2>选择你的系统</h2>
-          <p>Windows 版本现已提供下载；macOS 版本正在完成构建与签名准备。</p>
+          <p>Windows 与 macOS 客户端现已提供下载，请根据设备芯片选择对应版本。</p>
         </div>
         <div className="download-grid">
           <article className="platform-card available">
@@ -247,21 +251,26 @@ export default function Home() {
             <small>安装程序暂未进行商业代码签名，系统可能显示安全提醒。</small>
           </article>
 
-          <article className="platform-card pending" aria-labelledby="mac-title">
+          <article className="platform-card available" aria-labelledby="mac-title">
             <div className="platform-top">
               <span className="platform-icon apple"><AppleIcon /></span>
-              <span className="status preparing">准备中</span>
+              <span className="status ready">可下载</span>
             </div>
             <h3 id="mac-title">macOS</h3>
-            <p>需要在 macOS 构建环境完成打包、签名与验证。</p>
+            <p>适用于 macOS，分别提供 Apple 芯片与 Intel 芯片版本。</p>
             <dl>
-              <div><dt>版本</dt><dd>规划中</dd></div>
-              <div><dt>格式</dt><dd>DMG</dd></div>
+              <div><dt>版本</dt><dd>0.1.1</dd></div>
+              <div><dt>格式</dt><dd>DMG 安装镜像</dd></div>
             </dl>
-            <button className="platform-download disabled" type="button" disabled>
-              <AppleIcon /> macOS 版准备中
-            </button>
-            <small>完成可靠的 macOS 发布流程后再开放下载。</small>
+            <div className="platform-downloads">
+              <a className="platform-download" href={MAC_APPLE_SILICON_DOWNLOAD} download>
+                <AppleIcon /> Apple 芯片版 <ArrowDownIcon />
+              </a>
+              <a className="platform-download secondary-download" href={MAC_INTEL_DOWNLOAD} download>
+                <AppleIcon /> Intel 芯片版 <ArrowDownIcon />
+              </a>
+            </div>
+            <small>安装包暂未进行 Apple 公证，首次打开时系统可能显示安全提醒。</small>
           </article>
         </div>
       </section>

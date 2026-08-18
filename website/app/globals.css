@@ -485,6 +485,9 @@ svg { display: block; }
 .platform-download svg { width: 15px; }
 .platform-download svg:first-child { fill: currentColor; }
 .platform-download svg:last-child { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.7; }
+.platform-downloads { display: grid; gap: 8px; }
+.platform-download.secondary-download { color: var(--blue); background: var(--blue-soft); }
+.platform-download.secondary-download:hover { color: #fff; background: var(--blue-deep); }
 .platform-download.disabled { color: #8e99a7; background: #e7ebf0; cursor: not-allowed; }
 .platform-card > small { display: block; margin-top: 11px; color: #a0a9b4; font-size: 8px; line-height: 1.5; text-align: center; }
 
