@@ -1,0 +1,131 @@
+.github/workflows/release.yml
+  s_2c41a600a69b5e::t_5514c051aa8a8b 1-57
+.gitignore
+  s_2c41a600a69b5e::t_3c8e0e8e352f64 1-19
+Cargo.lock
+  s_2c41a600a69b5e::t_93a9db500cbacc 1-8081
+README.md
+  s_2c41a600a69b5e::t_30963323db833a 1-48
+crates/server/src/auth.rs
+  s_2c41a600a69b5e::t_ce4046924fb4e9 1-186
+crates/server/src/error.rs
+  s_2c41a600a69b5e::t_87501816f5bcec 1-44
+crates/server/src/main.rs
+  s_2c41a600a69b5e::t_24c32cb9c8a96e 1-94
+crates/server/src/rate_limit.rs
+  s_2c41a600a69b5e::t_95e32da205f48d 1-164
+crates/server/src/routes.rs
+  s_2c41a600a69b5e::t_3a3b12cd017c20 1-674
+crates/server/src/state.rs
+  s_2c41a600a69b5e::t_1709f7fc28aa0c 1-42
+deploy/sealed-server.service
+  s_2c41a600a69b5e::t_cbc333e57b3a33 1-24
+desktop/package.json
+  s_e555f7a4e9f4d1::t_74a239745c1749 1-29
+desktop/pnpm-lock.yaml
+  s_2c41a600a69b5e::t_67c0ba22602e46 1-1827
+desktop/src-tauri/gen/schemas/acl-manifests.json
+  s_2c41a600a69b5e::t_97bab65b5491cf 1
+desktop/src-tauri/gen/schemas/capabilities.json
+  s_2c41a600a69b5e::t_94118f12b081b2 1
+desktop/src-tauri/gen/schemas/desktop-schema.json
+  s_2c41a600a69b5e::t_52d739ebc9b988 1-2436
+desktop/src-tauri/gen/schemas/windows-schema.json
+  s_2c41a600a69b5e::t_119f28002ee265 1-2436
+desktop/src-tauri/icons/android/mipmap-anydpi-v26/ic_launcher.xml
+  s_e555f7a4e9f4d1::t_bfe7dca85d3c9f 1-5
+desktop/src-tauri/icons/android/values/ic_launcher_background.xml
+  s_e555f7a4e9f4d1::t_649c54aff660c8 1-4
+desktop/src-tauri/src/lib.rs
+  s_2c41a600a69b5e::t_dc4bce68f4fe6a 1-47
+desktop/src/TitleBar.tsx
+  s_2c41a600a69b5e::t_2e3220f21cb0d3 1-32
+website/.gitignore
+  s_2c41a600a69b5e::t_5f493eb8c1ad90 1-40
+website/.openai/hosting.json
+  s_2c41a600a69b5e::t_dfc746b02b0a26 1-4
+website/README.md
+  s_2c41a600a69b5e::t_4679df5ff0a9d1 1-100
+website/app/_sites-preview/SkeletonPreview.tsx
+  s_2c41a600a69b5e::t_cea33649e2ad50 1-145
+website/app/_sites-preview/preview.css
+  s_2c41a600a69b5e::t_ce438a70cd8e2f 1-326
+website/app/chatgpt-auth.ts
+  s_2c41a600a69b5e::t_acc10a6ce00c46 1-90
+website/app/globals.css
+  s_2c41a600a69b5e::t_4ca7d235809a7f 1-543
+website/app/layout.tsx
+  s_2c41a600a69b5e::t_516bd3fda540eb 1-29
+website/app/page.tsx
+  s_2c41a600a69b5e::t_74d658a5fab8bf 1-290
+website/db/index.ts
+  s_2c41a600a69b5e::t_ebdbd2b0ad6d75 1-13
+website/db/schema.ts
+  s_2c41a600a69b5e::t_3eaf8b4a532326 1-4
+website/deploy/ip-vhost.conf
+  s_2c41a600a69b5e::t_13f4c6eb7ddde8 1-13
+website/drizzle.config.ts
+  s_2c41a600a69b5e::t_73a6eab4c95e64 1-7
+website/drizzle/meta/_journal.json
+  s_2c41a600a69b5e::t_a6a52d4a5349c2 1-5
+website/eslint.config.mjs
+  s_2c41a600a69b5e::t_2a789eaec7ef02 1-41
+website/examples/d1/app/api/notes/route.ts
+  s_2c41a600a69b5e::t_cf1410410e5392 1-58
+website/examples/d1/db/schema.ts
+  s_2c41a600a69b5e::t_d681e6509c7115 1-9
+website/next-env.d.ts
+  s_2c41a600a69b5e::t_d578cd57e2e83d 1-5
+website/next.config.ts
+  s_2c41a600a69b5e::t_39b8ea7a2bccb0 1-7
+website/package-lock.json
+  s_2c41a600a69b5e::t_5b7d8881bc1871 1-10293
+website/package.json
+  s_2c41a600a69b5e::t_f53f62d6553947 1-50
+website/postcss.config.mjs
+  s_2c41a600a69b5e::t_024670bbca29a7 1-7
+website/public/downloads/technology-communication_0.1.1_x64-setup.exe.sig
+  s_2c41a600a69b5e::t_c2bc274b954689 1
+website/public/favicon.svg
+  s_2c41a600a69b5e::t_95aab4b1901331 1-4
+website/public/file.svg
+  s_2c41a600a69b5e::t_7a67c8b0534214 1
+website/public/globe.svg
+  s_2c41a600a69b5e::t_288bdbad1ee942 1
+website/public/window.svg
+  s_2c41a600a69b5e::t_e8b1cea385c268 1
+website/scripts/export-static.mjs
+  s_2c41a600a69b5e::t_4964162b7518d6 1-36
+website/tests/rendered-html.test.mjs
+  s_2c41a600a69b5e::t_62f9c8f72fd505 1-38
+website/tsconfig.json
+  s_2c41a600a69b5e::t_1f405cb69d8d8b 1-29
+website/vite.config.ts
+  s_2c41a600a69b5e::t_ac45e83099efa7 1-59
+website/worker/index.ts
+  s_2c41a600a69b5e::t_b76fd31ee55852 1-47
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.14",
+  "base_commit_sha": "32f70f275164463ffc01754ff812943535df7d82",
+  "prompts": {},
+  "sessions": {
+    "s_2c41a600a69b5e": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a01264-eed3-7781-b4ae-f89e2863e53f",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "wangx111 <595856463@qq.com>"
+    },
+    "s_e555f7a4e9f4d1": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "7a8359dd-7d0f-4166-a3b2-7a7ae8a1d033",
+        "model": "deepseek-v4-pro"
+      },
+      "human_author": "wangx111 <595856463@qq.com>"
+    }
+  }
+}
