@@ -1,0 +1,52 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "技术交流",
+  "version": "0.1.1",
+  "identifier": "com.sorrythegame.technologycommunication",
+  "build": {
+    "beforeDevCommand": "pnpm dev",
+    "devUrl": "http://localhost:1420",
+    "beforeBuildCommand": "pnpm build",
+    "frontendDist": "../dist"
+  },
+  "app": {
+    "windows": [
+      {
+        "title": "技术交流",
+        "width": 380,
+        "height": 520,
+        "center": true,
+        "decorations": false,
+        "shadow": true,
+        "resizable": false,
+        "maximizable": false
+      }
+    ],
+    "security": {
+      "csp": null
+    }
+  },
+  "bundle": {
+    "active": true,
+    "createUpdaterArtifacts": true,
+    "targets": "all",
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ]
+  },
+  "plugins": {
+    "updater": {
+      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IEMxRUM2MzA1MEI4QjU2MjMKUldRalZvc0xCV1Bzd2RJMzNaYTMxeGV4eDIzaTk3TzJ1OUkzS042anVDYXhWWDh3WDQ2ZmVwaUsK",
+      "endpoints": [
+        "https://github.com/Sorrythegame/sealed-chat/releases/latest/download/latest.json"
+      ],
+      "windows": {
+        "installMode": "passive"
+      }
+    }
+  }
+}

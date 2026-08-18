@@ -1,0 +1,23 @@
+[package]
+name = "technology-communication"
+version = "0.1.1"
+edition = "2021"
+description = "Encrypted mixed-media chat desktop app"
+
+[lib]
+name = "technology_communication_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = [] }
+tauri-plugin-keyring = "0.1"
+tauri-plugin-updater = "2"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+base64 = { workspace = true }
+sealed-crypto = { workspace = true }
+xcap = "0.5"
+image = "0.25"

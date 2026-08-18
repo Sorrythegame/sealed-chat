@@ -1,0 +1,26 @@
+[package]
+name = "sealed-server"
+version = "0.1.1"
+edition = "2021"
+license = "MIT"
+description = "Encrypted chat relay server (accounts, key distribution, ciphertext relay, attachment storage)."
+
+[dependencies]
+sealed-crypto = { path = "../crypto" }
+sealed-protocol = { path = "../protocol" }
+axum = { workspace = true }
+tokio = { workspace = true }
+tower-http = { workspace = true }
+sqlx = { workspace = true }
+jsonwebtoken = { workspace = true }
+tracing = { workspace = true }
+tracing-subscriber = { workspace = true }
+anyhow = { workspace = true }
+thiserror = { workspace = true }
+chrono = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+base64 = { workspace = true }
+argon2 = { workspace = true }
+rand = { workspace = true }
+sha2 = { workspace = true }

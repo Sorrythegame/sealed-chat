@@ -1,0 +1,24 @@
+[Unit]
+Description=Technology Communication encrypted relay server
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/sealed-chat
+EnvironmentFile=/opt/sealed-chat/server.env
+ExecStart=/opt/sealed-chat/target/release/sealed-server
+Restart=on-failure
+RestartSec=3
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectHome=true
+ProtectSystem=strict
+ReadWritePaths=/opt/sealed-chat/data
+LockPersonality=true
+RestrictRealtime=true
+SystemCallArchitectures=native
+
+[Install]
+WantedBy=multi-user.target
