@@ -60,6 +60,8 @@ export default function App() {
     setError("");
     setBusy(true);
     try {
+      const publicIdentity =
+        (await crypto.loadIdentity()) ?? (await crypto.generateIdentity()).public_identity;
       const response =
         mode === "register"
           ? await api.register({
@@ -67,9 +69,14 @@ export default function App() {
               password,
               invite_code: inviteCode.trim(),
               device_name: "desktop",
-              public_identity: (await crypto.generateIdentity()).public_identity,
+              public_identity: publicIdentity,
             })
-          : await api.login({ username: normalizedUsername, password });
+          : await api.login({
+              username: normalizedUsername,
+              password,
+              device_name: "desktop",
+              public_identity: publicIdentity,
+            });
 
       setToken(response.token);
       await crypto.saveToken(response.token);

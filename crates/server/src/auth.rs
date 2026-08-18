@@ -9,6 +9,7 @@ use axum::http::header::AUTHORIZATION;
 use axum::http::{HeaderMap, StatusCode};
 use axum::Json;
 use jsonwebtoken::{decode, encode, DecodingKey, EncodingKey, Header, Validation};
+use sealed_crypto::identity::PublicIdentity;
 use sealed_protocol::{AuthResponse, LoginRequest, RegisterRequest};
 use serde::{Deserialize, Serialize};
 
@@ -166,15 +167,42 @@ pub async fn login(
         return Err(ApiError::Unauthorized);
     }
 
-    // Use the user's first device for the token (single-device MVP).
-    let device_id: Option<i64> =
+    let requested_device = normalize_login_device(req.device_name, req.public_identity)?;
+    let existing_device_id: Option<i64> =
         sqlx::query_scalar("SELECT id FROM devices WHERE user_id = ? ORDER BY id LIMIT 1")
             .bind(user_id)
             .fetch_optional(&state.db)
             .await
             .map_err(|e| ApiError::Internal(e.into()))?;
 
-    let device_id = device_id.ok_or(ApiError::Unauthorized)?;
+    // The MVP keeps one active device per account. A successful password login
+    // may bind a newly provisioned account or refresh the device public key on
+    // a fresh installation, where the previous local message keys are absent.
+    let device_id = if let Some((device_name, public_identity)) = requested_device {
+        if let Some(device_id) = existing_device_id {
+            sqlx::query("UPDATE devices SET device_name = ?, public_identity = ? WHERE id = ?")
+                .bind(device_name)
+                .bind(public_identity)
+                .bind(device_id)
+                .execute(&state.db)
+                .await
+                .map_err(|e| ApiError::Internal(e.into()))?;
+            device_id
+        } else {
+            sqlx::query(
+                "INSERT INTO devices (user_id, device_name, public_identity) VALUES (?, ?, ?)",
+            )
+            .bind(user_id)
+            .bind(device_name)
+            .bind(public_identity)
+            .execute(&state.db)
+            .await
+            .map_err(|e| ApiError::Internal(e.into()))?
+            .last_insert_rowid()
+        }
+    } else {
+        existing_device_id.ok_or(ApiError::Unauthorized)?
+    };
     let token = issue_token(&state, user_id, device_id)?;
 
     Ok(Json(AuthResponse {
@@ -183,4 +211,80 @@ pub async fn login(
         username: req.username,
         token,
     }))
+}
+
+fn normalize_login_device(
+    device_name: Option<String>,
+    public_identity: Option<String>,
+) -> ApiResult<Option<(String, String)>> {
+    match (device_name, public_identity) {
+        (None, None) => Ok(None),
+        (Some(device_name), Some(public_identity)) => {
+            let device_name = device_name.trim().to_string();
+            if device_name.is_empty() || device_name.chars().count() > 64 {
+                return Err(ApiError::BadRequest("invalid device name".into()));
+            }
+            PublicIdentity::from_wire(&public_identity)
+                .map_err(|_| ApiError::BadRequest("invalid public identity".into()))?;
+            Ok(Some((device_name, public_identity)))
+        }
+        _ => Err(ApiError::BadRequest(
+            "device name and public identity must be supplied together".into(),
+        )),
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use axum::extract::State;
+    use sealed_crypto::identity::IdentityKeyPair;
+    use sqlx::sqlite::SqlitePoolOptions;
+
+    use crate::state::Connections;
+
+    #[tokio::test]
+    async fn login_binds_the_first_device_for_a_provisioned_account() {
+        let pool = SqlitePoolOptions::new()
+            .max_connections(1)
+            .connect("sqlite::memory:")
+            .await
+            .expect("open in-memory database");
+        crate::db::migrate(&pool).await.expect("create schema");
+        let password_hash = hash_password("initial-password").expect("hash password");
+        let user_id = sqlx::query("INSERT INTO users (username, password_hash) VALUES (?, ?)")
+            .bind("wangxin")
+            .bind(password_hash)
+            .execute(&pool)
+            .await
+            .expect("insert provisioned user")
+            .last_insert_rowid();
+        let public_identity = IdentityKeyPair::generate().public().to_wire();
+        let state = AppState {
+            db: pool.clone(),
+            jwt_secret: "login-test-secret".to_string(),
+            connections: Connections::default(),
+        };
+
+        let Json(response) = login(
+            State(state),
+            Json(LoginRequest {
+                username: "wangxin".to_string(),
+                password: "initial-password".to_string(),
+                device_name: Some("desktop".to_string()),
+                public_identity: Some(public_identity.clone()),
+            }),
+        )
+        .await
+        .expect("login succeeds");
+
+        assert_eq!(response.user_id, user_id);
+        let stored: (String, String) =
+            sqlx::query_as("SELECT device_name, public_identity FROM devices WHERE id = ?")
+                .bind(response.device_id)
+                .fetch_one(&pool)
+                .await
+                .expect("load bound device");
+        assert_eq!(stored, ("desktop".to_string(), public_identity));
+    }
 }

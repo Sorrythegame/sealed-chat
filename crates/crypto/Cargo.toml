@@ -1,6 +1,6 @@
 [package]
 name = "sealed-crypto"
-version = "0.1.1"
+version = "0.1.2"
 edition = "2021"
 license = "MIT"
 description = "End-to-end encryption primitives for sealed-chat (X25519, AES-GCM, Ed25519, HKDF, argon2)."

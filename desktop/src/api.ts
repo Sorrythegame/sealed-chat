@@ -95,7 +95,12 @@ export const api = {
   }) =>
     request<AuthResponse>("/api/auth/register", { method: "POST", body: JSON.stringify(body) }),
 
-  login: (body: { username: string; password: string }) =>
+  login: (body: {
+    username: string;
+    password: string;
+    device_name: string;
+    public_identity: string;
+  }) =>
     request<AuthResponse>("/api/auth/login", { method: "POST", body: JSON.stringify(body) }),
 
   listUsers: () => request<{ users: UserInfo[] }>("/api/users"),

@@ -20,6 +20,7 @@ export interface AttachmentCipher {
 
 export const crypto = {
   generateIdentity: () => invoke<{ public_identity: string }>("generate_identity"),
+  loadIdentity: () => invoke<string | null>("load_identity"),
 
   initiateSession: (peerPublicIdentity: string) =>
     invoke<SessionInit>("initiate_session", { peerPublicIdentity }),

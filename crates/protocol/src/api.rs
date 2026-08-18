@@ -26,6 +26,12 @@ pub struct InviteCreateResponse {
 pub struct LoginRequest {
     pub username: String,
     pub password: String,
+    /// Optional for protocol compatibility. Current desktop clients send both
+    /// fields so a pre-provisioned account can bind its first device at login.
+    #[serde(default)]
+    pub device_name: Option<String>,
+    #[serde(default)]
+    pub public_identity: Option<String>,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]

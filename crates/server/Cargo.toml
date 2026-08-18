@@ -1,6 +1,6 @@
 [package]
 name = "sealed-server"
-version = "0.1.1"
+version = "0.1.2"
 edition = "2021"
 license = "MIT"
 description = "Encrypted chat relay server (accounts, key distribution, ciphertext relay, attachment storage)."

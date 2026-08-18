@@ -31,9 +31,9 @@ test("renders the production download page", async () => {
   assert.match(html, /<html[^>]*lang="zh-CN"/i);
   assert.match(html, /<title>技术交流 - 安全、克制的沟通工具<\/title>/i);
   assert.match(html, /让重要沟通/);
-  assert.match(html, /technology-communication_0\.1\.1_x64-setup\.exe/);
-  assert.match(html, /technology-communication_0\.1\.1_aarch64\.dmg/);
-  assert.match(html, /technology-communication_0\.1\.1_x64\.dmg/);
+  assert.match(html, /technology-communication_0\.1\.2_x64-setup\.exe/);
+  assert.match(html, /technology-communication_0\.1\.2_aarch64\.dmg/);
+  assert.match(html, /technology-communication_0\.1\.2_x64\.dmg/);
   assert.match(html, /Apple 芯片版/);
   assert.match(html, /Intel 芯片版/);
   assert.doesNotMatch(html, /macOS 版准备中/);

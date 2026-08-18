@@ -7,11 +7,11 @@ export const metadata: Metadata = {
 };
 
 const WINDOWS_DOWNLOAD =
-  "/downloads/technology-communication_0.1.1_x64-setup.exe";
+  "/downloads/technology-communication_0.1.2_x64-setup.exe";
 const MAC_APPLE_SILICON_DOWNLOAD =
-  "/downloads/technology-communication_0.1.1_aarch64.dmg";
+  "/downloads/technology-communication_0.1.2_aarch64.dmg";
 const MAC_INTEL_DOWNLOAD =
-  "/downloads/technology-communication_0.1.1_x64.dmg";
+  "/downloads/technology-communication_0.1.2_x64.dmg";
 
 type IconProps = {
   className?: string;
@@ -176,7 +176,7 @@ export default function Home() {
           <div className="hero-actions">
             <a className="button primary" href={WINDOWS_DOWNLOAD} download>
               <WindowsIcon />
-              <span><b>下载 Windows 版</b><small>v0.1.1 · 64 位</small></span>
+              <span><b>下载 Windows 版</b><small>v0.1.2 · 64 位</small></span>
               <ArrowDownIcon className="arrow" />
             </a>
             <a className="button secondary" href="#download">
@@ -242,7 +242,7 @@ export default function Home() {
             <h3>Windows</h3>
             <p>适用于 Windows 10 / 11，64 位系统。</p>
             <dl>
-              <div><dt>版本</dt><dd>0.1.1</dd></div>
+              <div><dt>版本</dt><dd>0.1.2</dd></div>
               <div><dt>格式</dt><dd>EXE 安装程序</dd></div>
             </dl>
             <a className="platform-download" href={WINDOWS_DOWNLOAD} download>
@@ -259,7 +259,7 @@ export default function Home() {
             <h3 id="mac-title">macOS</h3>
             <p>适用于 macOS，分别提供 Apple 芯片与 Intel 芯片版本。</p>
             <dl>
-              <div><dt>版本</dt><dd>0.1.1</dd></div>
+              <div><dt>版本</dt><dd>0.1.2</dd></div>
               <div><dt>格式</dt><dd>DMG 安装镜像</dd></div>
             </dl>
             <div className="platform-downloads">
