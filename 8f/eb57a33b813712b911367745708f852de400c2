@@ -1,0 +1,52 @@
+crates/protocol/Cargo.toml
+  s_2c41a600a69b5e::t_80cf6ba3d66acb 3
+crates/server/src/auth.rs
+  s_2c41a600a69b5e::t_c0d902d61561fa 183-189,282-287
+  s_2c41a600a69b5e::t_659f82937f499d 12,170-171,178-182,190-205,215-281,288-290
+desktop/src/api.ts
+  s_2c41a600a69b5e::t_659f82937f499d 98-103
+website/app/page.tsx
+  s_2c41a600a69b5e::t_80cf6ba3d66acb 10,12,14,179,245,262
+desktop/src-tauri/Cargo.toml
+  s_2c41a600a69b5e::t_80cf6ba3d66acb 3
+desktop/src-tauri/tauri.conf.json
+  s_2c41a600a69b5e::t_80cf6ba3d66acb 4
+crates/crypto/Cargo.toml
+  s_2c41a600a69b5e::t_80cf6ba3d66acb 3
+crates/protocol/src/api.rs
+  s_2c41a600a69b5e::t_659f82937f499d 29-34
+crates/server/Cargo.toml
+  s_2c41a600a69b5e::t_80cf6ba3d66acb 3
+desktop/package.json
+  s_2c41a600a69b5e::t_80cf6ba3d66acb 3
+website/tests/rendered-html.test.mjs
+  s_2c41a600a69b5e::t_80cf6ba3d66acb 34-36
+desktop/src/crypto.ts
+  s_2c41a600a69b5e::t_659f82937f499d 23
+desktop/src/App.tsx
+  s_2c41a600a69b5e::t_659f82937f499d 63-64,72,74-79
+Cargo.toml
+  s_2c41a600a69b5e::t_80cf6ba3d66acb 6
+Cargo.lock
+  s_2c41a600a69b5e::t_5f70078f1468aa 4905,4924,4934,6069
+website/package-lock.json
+  s_2c41a600a69b5e::t_50ac53b24bc0ca 3,9
+website/package.json
+  s_2c41a600a69b5e::t_e340ca6e6def59 3
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.14",
+  "base_commit_sha": "8feb57a33b813712b911367745708f852de400c2",
+  "prompts": {},
+  "sessions": {
+    "s_2c41a600a69b5e": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a01264-eed3-7781-b4ae-f89e2863e53f",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "wangx111 <595856463@qq.com>"
+    }
+  }
+}
