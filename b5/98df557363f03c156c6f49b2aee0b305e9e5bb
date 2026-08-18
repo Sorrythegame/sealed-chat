@@ -1,0 +1,23 @@
+website/app/page.tsx
+  s_2c41a600a69b5e::t_737b6d4eccd75e 6,11-14,234,254,257,260,262-263,265-273
+website/app/globals.css
+  s_2c41a600a69b5e::t_737b6d4eccd75e 488-490
+website/tests/rendered-html.test.mjs
+  s_2c41a600a69b5e::t_737b6d4eccd75e 35-39
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.14",
+  "base_commit_sha": "b598df557363f03c156c6f49b2aee0b305e9e5bb",
+  "prompts": {},
+  "sessions": {
+    "s_2c41a600a69b5e": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a01264-eed3-7781-b4ae-f89e2863e53f",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "wangx111 <595856463@qq.com>"
+    }
+  }
+}
