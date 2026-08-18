@@ -53,5 +53,6 @@ jobs:
           releaseBody: 技术交流桌面客户端自动发布版本。
           releaseDraft: false
           prerelease: false
+          retryAttempts: 3
           updaterJsonPreferNsis: true
           args: ${{ matrix.args }}
